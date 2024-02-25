@@ -97,15 +97,16 @@ int first_recurring_numb(vector<int> array)
 
 void test01()
 {
-    DoubleLinkList<int> llist;
+    LinkList<int> llist;
     int result;
 
     llist.Append(11);
     llist.Append(22);
     llist.Append(33);
 
-    llist.Remove(1);
+    llist.Reverse();
 
+    result = llist.Pop();
     result = llist.Pop();
     result = llist.Pop();
 }

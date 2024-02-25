@@ -97,6 +97,26 @@ TEST_CASE( "Testing linked Remove", "[linklist]") {
     REQUIRE( result == 22 );
 }
 
+TEST_CASE( "Testing linked Reverse", "[linklist]") {
+    LinkList<int> llist;
+    int result;
+
+    llist.Append(11);
+    llist.Append(22);
+    llist.Append(33);
+
+    llist.Reverse();
+
+    result = llist.Pop();
+    REQUIRE( result == 33 );
+
+    result = llist.Pop();
+    REQUIRE( result == 22 );
+
+    result = llist.Pop();
+    REQUIRE( result == 11 );
+}
+
 /*int main(int argc, char* argv[])
 {
     Catch::RunTests()

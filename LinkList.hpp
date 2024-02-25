@@ -99,6 +99,35 @@ public:
         return 0;
     }
 
+    void Reverse() {
+        if (count < 2) {
+            return;
+        }
+        if (count == 2) {
+            head->next = NULL;
+            tail->next = head;
+
+            head = tail;
+            tail = head->next;
+        }
+        else {
+            LinkNode<T> *previous = NULL;
+            LinkNode<T> *current = head;
+
+            while (current != NULL) {
+                LinkNode<T> *next = current->next;
+
+                current->next = previous;
+
+                previous = current;
+                current = next;
+            }
+
+            tail = head;
+            head = previous;
+        }
+    }
+
     void Print() {
         if (head == NULL && tail == NULL) {
             std::cout << "empty" << std::endl;
