@@ -11,5 +11,9 @@ target_link_libraries(${PROJECT_NAME})
 
 
 project(tests LANGUAGES CXX)
+set(CMAKE_BUILD_TYPE Debug)
 
-add_executable(${PROJECT_NAME} tests/test_demo.cpp tests/catch_amalgamated.cpp)
+add_executable(${PROJECT_NAME} 
+    tests/test_demo.cpp
+    tests/test_double_linklist.cpp
+    tests/catch_amalgamated.cpp)

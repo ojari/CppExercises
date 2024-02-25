@@ -4,6 +4,7 @@
 #include <algorithm>
 #include "HashTable.hpp"
 #include "LinkList.hpp"
+#include "DoubleLinkList.hpp"
 
 using namespace std;
 
@@ -94,6 +95,21 @@ int first_recurring_numb(vector<int> array)
     return -1;
 }
 
+void test01()
+{
+    DoubleLinkList<int> llist;
+    int result;
+
+    llist.Append(11);
+    llist.Append(22);
+    llist.Append(33);
+
+    llist.Remove(1);
+
+    result = llist.Pop();
+    result = llist.Pop();
+}
+
 int main()
 {
     vector<char> one{'a', 'b', 'c', 'x'};
@@ -135,10 +151,13 @@ int main()
         cout << " - " << key << endl;
     }*/
 
+/*
     LinkList<int> list;
     list.Append(10);
     list.Append(20);
     list.Print();
+*/
+    test01();
 
     return 0;
 }
