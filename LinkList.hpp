@@ -10,7 +10,7 @@ template<typename T> class LinkNode {
 public:
     LinkNode(T val) :
         value { val },
-        next { NULL }
+        next { nullptr }
     {}
 private:
     T value;
@@ -22,8 +22,8 @@ private:
 template<typename T> class LinkList {
 public:
     LinkList() :
-        head { NULL},
-        tail { NULL},
+        head { nullptr},
+        tail { nullptr},
         count { 0 }
     {
     }
@@ -31,7 +31,7 @@ public:
     void Append(T value) {
         auto newnode = new LinkNode<T>(value);
         count++;
-        if (head == NULL) {
+        if (head == nullptr) {
             head = newnode;
             tail = newnode;
         }
@@ -44,7 +44,7 @@ public:
     void Prepend(T value) {
         auto newnode = new LinkNode<T>(value);
         count++;
-        if (head == NULL) {
+        if (head == nullptr) {
             head = newnode;
             tail = newnode;
         }
@@ -88,7 +88,7 @@ public:
     }
 
     T Pop() {
-        if (head != NULL) {
+        if (head != nullptr) {
             count--;
             T result = head->value;
             LinkNode<T> *first = head;
@@ -104,17 +104,17 @@ public:
             return;
         }
         if (count == 2) {
-            head->next = NULL;
+            head->next = nullptr;
             tail->next = head;
 
             head = tail;
             tail = head->next;
         }
         else {
-            LinkNode<T> *previous = NULL;
+            LinkNode<T> *previous = nullptr;
             LinkNode<T> *current = head;
 
-            while (current != NULL) {
+            while (current != nullptr) {
                 LinkNode<T> *next = current->next;
 
                 current->next = previous;
@@ -129,12 +129,12 @@ public:
     }
 
     void Print() {
-        if (head == NULL && tail == NULL) {
+        if (head == nullptr && tail == nullptr) {
             std::cout << "empty" << std::endl;
             return;
         }
         LinkNode<T> *current = head;
-        while (current != NULL) {
+        while (current != nullptr) {
             std::cout << " node " << current->value << std::endl;
             current = current->next;
         }

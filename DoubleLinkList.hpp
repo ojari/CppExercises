@@ -10,8 +10,8 @@ template<typename T> class DoubleLinkNode {
 public:
     DoubleLinkNode(T val) :
         value { val },
-        next { NULL },
-        previous { NULL }
+        next { nullptr },
+        previous { nullptr }
     {}
 private:
     T value;
@@ -24,8 +24,8 @@ private:
 template<typename T> class DoubleLinkList {
 public:
     DoubleLinkList() :
-        head { NULL},
-        tail { NULL},
+        head { nullptr},
+        tail { nullptr},
         count { 0 }
     {
     }
@@ -33,7 +33,7 @@ public:
     void Append(T value) {
         auto newnode = new DoubleLinkNode<T>(value);
         count++;
-        if (head == NULL) {
+        if (head == nullptr) {
             head = newnode;
             tail = newnode;
         }
@@ -47,7 +47,7 @@ public:
     void Prepend(T value) {
         auto newnode = new DoubleLinkNode<T>(value);
         count++;
-        if (head == NULL) {
+        if (head == nullptr) {
             head = newnode;
             tail = newnode;
         }
@@ -75,7 +75,7 @@ public:
         auto newnode = new DoubleLinkNode<T>(value);
         newnode->next = follower;
         newnode->previous = leader;
-        if (follower != NULL) {
+        if (follower != nullptr) {
             follower->previous = newnode;
         }
         leader->next = newnode;
@@ -85,17 +85,17 @@ public:
         if (position == 0) {
             DoubleLinkNode<T> *next = head->next;
             delete head;
-            next->previous = NULL;
+            next->previous = nullptr;
             head = next;
         }
 
         DoubleLinkNode<T> *leader = MoveToIndex(position);
         DoubleLinkNode<T> *to_delete = leader->next;
-        if (to_delete != NULL) {
+        if (to_delete != nullptr) {
             DoubleLinkNode<T> *follower = to_delete->next;
 
             leader->next = follower;
-            if (follower != NULL) {
+            if (follower != nullptr) {
                 follower->previous = leader;
             }
 
@@ -105,17 +105,17 @@ public:
     }
 
     T Pop() {
-        if (head != NULL) {
+        if (head != nullptr) {
             count--;
             T result = head->value;
             DoubleLinkNode<T> *first = head;
-            if (head->next != NULL) { // is empty
+            if (head->next != nullptr) { // is empty
                 head = head->next;
-                head->previous = NULL;
+                head->previous = nullptr;
             }
             else {
-                head = NULL;
-                tail = NULL;
+                head = nullptr;
+                tail = nullptr;
             }
             delete first;
             return result;
@@ -124,12 +124,12 @@ public:
     }
 
     void Print() {
-        if (head == NULL && tail == NULL) {
+        if (head == nullptr && tail == nullptr) {
             std::cout << "empty" << std::endl;
             return;
         }
         DoubleLinkNode<T> *current = head;
-        while (current != NULL) {
+        while (current != nullptr) {
             std::cout << " node " << current->value << std::endl;
             current = current->next;
         }
