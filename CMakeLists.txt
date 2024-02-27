@@ -16,4 +16,5 @@ set(CMAKE_BUILD_TYPE Debug)
 add_executable(${PROJECT_NAME} 
     tests/test_demo.cpp
     tests/test_double_linklist.cpp
+    tests/test_stack.cpp
     tests/catch_amalgamated.cpp)

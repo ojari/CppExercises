@@ -96,7 +96,7 @@ public:
             delete first;
             return result;
         }
-        return 0;
+        throw std::runtime_error("Pop empty stack");
     }
 
     void Reverse() {
@@ -138,6 +138,12 @@ public:
             std::cout << " node " << current->value << std::endl;
             current = current->next;
         }
+    }
+
+    T PeekHead() {
+        if (head != nullptr)
+            return head->value;
+        throw std::runtime_error("Peek empty stack");
     }
 
 private:
