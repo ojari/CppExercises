@@ -5,6 +5,7 @@
 #include "HashTable.hpp"
 #include "LinkList.hpp"
 #include "DoubleLinkList.hpp"
+#include "Queue.hpp"
 
 using namespace std;
 
@@ -111,6 +112,14 @@ void test01()
     result = llist.Pop();
 }
 
+void test02()
+{
+    Queue<int> queue;
+    queue.Enqueue(10);
+    queue.DeQueue();
+    queue.DeQueue();
+}
+
 int main()
 {
     vector<char> one{'a', 'b', 'c', 'x'};
@@ -159,6 +168,7 @@ int main()
     list.Print();
 */
     test01();
+    test02();
 
     return 0;
 }

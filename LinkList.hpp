@@ -2,11 +2,13 @@
 
 #include <iostream>
 template<typename T> class LinkList;
+template<typename T> class Queue;
 
 /** Linked list contains these items.
  */
 template<typename T> class LinkNode {
     friend LinkList<T>;
+    friend Queue<T>;
 public:
     LinkNode(T val) :
         value { val },
