@@ -19,7 +19,7 @@ private:
     LinkNode<T> *next;
 };
 
-/** Linked list contains these items.
+/** Linked list implementation.
  */
 template<typename T> class LinkList {
 public:
