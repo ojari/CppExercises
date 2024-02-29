@@ -14,6 +14,16 @@ public:
         left { nullptr },
         right { nullptr }
     {}
+    T Value() {
+        return value;
+    }
+    BinaryNode<T> *Left() {
+        return left;
+    }
+    BinaryNode<T> *Right() {
+        return right;
+    }
+
 private:
     T value;
     BinaryNode<T> *left;
@@ -29,6 +39,10 @@ public:
         root { nullptr},
         count { 0 }
     {
+    }
+
+    BinaryNode<T> *GetRoot() {
+        return root;
     }
 
     void Insert(T value) {
@@ -52,6 +66,10 @@ public:
     }
 
     bool Lookup(T value) {
+        if (root == nullptr) {
+            return false;
+        }
+
         auto position = Find(value);
 
         return position->value == value;
@@ -63,6 +81,8 @@ public:
     }
 
 private:
+    /** Search closes node for a value.
+     */
     BinaryNode<T> *Find(T value) {
         BinaryNode<T> *current = root;
         while (current != nullptr) {
