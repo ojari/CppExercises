@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+
 template<typename T> class BinarySearchTree;
 template<typename T> class Queue;
 
@@ -14,6 +15,15 @@ public:
         left { nullptr },
         right { nullptr }
     {}
+
+    void SetLR(BinaryNode<T> *ref, BinaryNode<T> *value) {
+        if (left == ref) {
+            left = value;
+        }
+        else if (right == ref) {
+            right = value;
+        }
+    }
     T Value() {
         return value;
     }
@@ -76,8 +86,56 @@ public:
     }
 
     void Remove(T value) {
-        auto position = Find(value);
+        if (root == nullptr) {
+            return;
+        }
 
+        // search correct position in the tree
+        BinaryNode<T> *current = root;
+        BinaryNode<T> *parent = nullptr;
+        while (current != nullptr) {
+            if ((value < current->value) && (current->left != nullptr)) {
+                parent = current;
+                current = current->left;
+            }
+            else if ((value > current->value) && (current->right != nullptr)) {
+                parent = current;
+                current = current->right;
+            }
+            else {
+                break;
+            }
+        }
+        // item not found from list
+        if (current == nullptr || (current->value != value)) {
+            return;   
+        }
+
+        if (current->left == nullptr && current->right == nullptr) {  // is leaf node
+            parent->SetLR(current, nullptr);
+            delete current;
+        }
+        else if (current->left == nullptr) {
+            parent->SetLR(current, current->right);
+            delete current;
+        }
+        else if (current->right == nullptr) {
+            parent->SetLR(current, current->left);
+            delete current;
+        }
+        else {
+            if (current->right->left == nullptr) {
+                current->right->left = current->left;
+                parent->SetLR(current, current->right);
+                delete current;
+            }
+            else if (current->left->right == nullptr) {
+                current->left->right = current->right;
+                parent->SetLR(current, current->left);
+                delete current;
+            }
+            // not yet implemented harder cases
+        }
     }
 
 private:

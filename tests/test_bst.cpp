@@ -41,7 +41,6 @@ TEST_CASE( "Testing BTS Loopup empty", "[bst]") {
     REQUIRE( bst.Lookup(10) == false);
 }
 
-
 TEST_CASE( "Testing BTS Loopup", "[bst]") {
     BinarySearchTree<int> bst;
 
@@ -51,4 +50,27 @@ TEST_CASE( "Testing BTS Loopup", "[bst]") {
     REQUIRE( bst.Lookup(10) == true);
     REQUIRE( bst.Lookup(20) == true);
     REQUIRE( bst.Lookup(30) == false);
+}
+
+TEST_CASE( "Testing BTS Remove leaf", "[bst]") {
+    BinarySearchTree<int> bst;
+
+    FillTree(bst);
+
+    bst.Remove(170);
+    bst.Remove(180);
+
+    REQUIRE(bst.Lookup(170) == false);
+}
+
+TEST_CASE( "Testing BTS Remove middle", "[bst]") {
+    BinarySearchTree<int> bst;
+
+    FillTree(bst);
+
+    bst.Remove(20);
+
+    REQUIRE(bst.Lookup(20) == false);
+    REQUIRE(bst.Lookup(170) == true);
+    REQUIRE(bst.Lookup(15) == true);
 }

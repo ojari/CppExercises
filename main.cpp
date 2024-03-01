@@ -5,6 +5,7 @@
 #include "HashTable.hpp"
 #include "LinkList.hpp"
 #include "DoubleLinkList.hpp"
+#include "BinarySearchTree.hpp"
 #include "Queue.hpp"
 
 using namespace std;
@@ -120,6 +121,21 @@ void test02()
     queue.DeQueue();
 }
 
+void test03()
+{
+    BinarySearchTree<int> bst;
+
+    bst.Insert(9);
+    bst.Insert(4);
+    bst.Insert(6);
+    bst.Insert(20);
+    bst.Insert(170);
+    bst.Insert(15);
+    bst.Insert(1);
+
+    bst.Remove(20);
+}
+
 int main()
 {
     vector<char> one{'a', 'b', 'c', 'x'};
@@ -167,8 +183,9 @@ int main()
     list.Append(20);
     list.Print();
 */
-    test01();
-    test02();
+    //test01();
+    //test02();
+    test03();
 
     return 0;
 }
