@@ -30,7 +30,7 @@ public:
     {
     }
 
-    void Append(T value) {
+    void append(T value) {
         auto newnode = new LinkNode<T>(value);
         count++;
         if (head == nullptr) {
@@ -43,7 +43,7 @@ public:
         }
     }
 
-    void Prepend(T value) {
+    void prepend(T value) {
         auto newnode = new LinkNode<T>(value);
         count++;
         if (head == nullptr) {
@@ -56,17 +56,17 @@ public:
         }
     }
 
-    void Insert(int position, T value) {
+    void insert(int position, T value) {
         if (position == 0) {
-            Prepend(value);
+            prepend(value);
             return;
         }
         if (position >= count) {
-            Append(value);
+            append(value);
             return;
         }
 
-        LinkNode<T> *previous = MoveToIndex(position-1);
+        LinkNode<T> *previous = moveToIndex(position-1);
 
         count++;
         auto newnode = new LinkNode<T>(value);
@@ -74,14 +74,14 @@ public:
         previous->next = newnode;
     }
 
-    void Remove(int position) {
+    void remove(int position) {
         if (position == 0) {
             LinkNode<T> *next = head->next;
             delete head;
             head = next;
         }
 
-        LinkNode<T> *previous = MoveToIndex(position);
+        LinkNode<T> *previous = moveToIndex(position);
         LinkNode<T> *to_delete = previous->next;
         previous->next = previous->next->next;
 
@@ -89,7 +89,7 @@ public:
         count--;
     }
 
-    T Pop() {
+    T pop() {
         if (head != nullptr) {
             count--;
             T result = head->value;
@@ -101,7 +101,7 @@ public:
         throw std::runtime_error("Pop empty stack");
     }
 
-    void Reverse() {
+    void reverse() {
         if (count < 2) {
             return;
         }
@@ -130,7 +130,7 @@ public:
         }
     }
 
-    void Print() {
+    void print() {
         if (head == nullptr && tail == nullptr) {
             std::cout << "empty" << std::endl;
             return;
@@ -142,14 +142,14 @@ public:
         }
     }
 
-    T PeekHead() {
+    T peekHead() {
         if (head != nullptr)
             return head->value;
         throw std::runtime_error("Peek empty stack");
     }
 
 private:
-    LinkNode<T>* MoveToIndex(int index) {
+    LinkNode<T>* moveToIndex(int index) {
         int counter = 0;
         LinkNode<T> *current = head;
 

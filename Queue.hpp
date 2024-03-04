@@ -11,13 +11,13 @@ public:
     {
     }
 
-    T Peek() {
+    T peek() {
         if (first == nullptr) throw std::runtime_error("Peek from empty queue");
 
         return first->value;
     }
 
-    void Enqueue(T value) {
+    void enqueue(T value) {
         auto newnode = new LinkNode<T>(value);
 
         if (last == nullptr) {
@@ -30,7 +30,7 @@ public:
         }
     }
 
-    T DeQueue() {
+    T deQueue() {
         if (first == nullptr) throw std::runtime_error("DeQueue from empty queue");
 
         T result = first->value;

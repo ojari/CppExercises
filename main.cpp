@@ -102,38 +102,38 @@ void test01()
     LinkList<int> llist;
     int result;
 
-    llist.Append(11);
-    llist.Append(22);
-    llist.Append(33);
+    llist.append(11);
+    llist.append(22);
+    llist.append(33);
 
-    llist.Reverse();
+    llist.reverse();
 
-    result = llist.Pop();
-    result = llist.Pop();
-    result = llist.Pop();
+    result = llist.pop();
+    result = llist.pop();
+    result = llist.pop();
 }
 
 void test02()
 {
     Queue<int> queue;
-    queue.Enqueue(10);
-    queue.DeQueue();
-    queue.DeQueue();
+    queue.enqueue(10);
+    queue.deQueue();
+    queue.deQueue();
 }
 
 void test03()
 {
     BinarySearchTree<int> bst;
 
-    bst.Insert(9);
-    bst.Insert(4);
-    bst.Insert(6);
-    bst.Insert(20);
-    bst.Insert(170);
-    bst.Insert(15);
-    bst.Insert(1);
+    bst.insert(9);
+    bst.insert(4);
+    bst.insert(6);
+    bst.insert(20);
+    bst.insert(170);
+    bst.insert(15);
+    bst.insert(1);
 
-    bst.Remove(20);
+    bst.remove(20);
 }
 
 int main()

@@ -31,13 +31,13 @@ TEST_CASE( "Testing linked list", "[linklist]") {
     LinkList<int> llist;
     int result;
 
-    llist.Append(123);
-    llist.Append(402);
+    llist.append(123);
+    llist.append(402);
 
-    result = llist.Pop();
+    result = llist.pop();
     REQUIRE( result == 123 );
 
-    result = llist.Pop();
+    result = llist.pop();
     REQUIRE( result == 402 );
 }
 
@@ -45,13 +45,13 @@ TEST_CASE( "Testing linked Push and Pop 1", "[linklist]") {
     LinkList<int> llist;
     int result;
 
-    llist.Prepend(11);
-    llist.Prepend(22);
+    llist.prepend(11);
+    llist.prepend(22);
 
-    result = llist.Pop();
+    result = llist.pop();
     REQUIRE( result == 22 );
 
-    result = llist.Pop();
+    result = llist.pop();
     REQUIRE( result == 11 );
 }
 
@@ -59,21 +59,21 @@ TEST_CASE( "Testing linked Insert", "[linklist]") {
     LinkList<int> llist;
     int result;
 
-    llist.Append(11);
-    llist.Append(22);
-    llist.Insert(1, 33);
-    llist.Insert(2, 44);
+    llist.append(11);
+    llist.append(22);
+    llist.insert(1, 33);
+    llist.insert(2, 44);
 
-    result = llist.Pop();
+    result = llist.pop();
     REQUIRE( result == 11 );
 
-    result = llist.Pop();
+    result = llist.pop();
     REQUIRE( result == 33 );
 
-    result = llist.Pop();
+    result = llist.pop();
     REQUIRE( result == 44 );
 
-    result = llist.Pop();
+    result = llist.pop();
     REQUIRE( result == 22 );
 }
 
@@ -81,16 +81,16 @@ TEST_CASE( "Testing linked Remove", "[linklist]") {
     LinkList<int> llist;
     int result;
 
-    llist.Append(11);
-    llist.Append(22);
-    llist.Append(33);
+    llist.append(11);
+    llist.append(22);
+    llist.append(33);
 
-    llist.Remove(1);
+    llist.remove(1);
 
-    result = llist.Pop();
+    result = llist.pop();
     REQUIRE( result == 11 );
 
-    result = llist.Pop();
+    result = llist.pop();
     REQUIRE( result == 22 );
 }
 
@@ -98,19 +98,19 @@ TEST_CASE( "Testing linked Reverse", "[linklist]") {
     LinkList<int> llist;
     int result;
 
-    llist.Append(11);
-    llist.Append(22);
-    llist.Append(33);
+    llist.append(11);
+    llist.append(22);
+    llist.append(33);
 
-    llist.Reverse();
+    llist.reverse();
 
-    result = llist.Pop();
+    result = llist.pop();
     REQUIRE( result == 33 );
 
-    result = llist.Pop();
+    result = llist.pop();
     REQUIRE( result == 22 );
 
-    result = llist.Pop();
+    result = llist.pop();
     REQUIRE( result == 11 );
 }
 

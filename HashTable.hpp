@@ -16,12 +16,12 @@ public:
     }
 
     void set(std::string key, T value) {
-        int adr = MakeHash(key);
+        int adr = makeHash(key);
         values[adr].push_back(std::make_pair(key, value));
     }
 
     T get(std::string key) {
-        int adr = MakeHash(key);
+        int adr = makeHash(key);
         for (auto item : values[adr]) {
             if (item.first == key) {
                 return item.second;
@@ -54,7 +54,7 @@ public:
     }
 
 private:
-    int MakeHash(std::string key);
+    int makeHash(std::string key);
 
 private:
     std::vector<std::list<std::pair<std::string, T>>> values;
@@ -63,7 +63,7 @@ private:
 
 
 template<typename T>
-int HashTable<T>::MakeHash(std::string key)
+int HashTable<T>::makeHash(std::string key)
 {
     int hash = 0;
     int index = 1;

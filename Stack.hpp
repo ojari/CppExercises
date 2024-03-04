@@ -10,16 +10,16 @@ public:
     {
     }
 
-    T Peek() {
-        return list.PeekHead();
+    T peek() {
+        return list.peekHead();
     }
 
-    void Push(T value) {
-        list.Prepend(value);
+    void push(T value) {
+        list.prepend(value);
     }
 
-    T Pop() {
-        return list.Pop();
+    T pop() {
+        return list.pop();
     }
 
 private:
@@ -33,16 +33,16 @@ public:
     {
     }
 
-    T Peek() {
+    T peek() {
         if (arr.size() == 0) throw std::runtime_error("Peek empty stack");
         return arr.back();
     }
 
-    void Push(T value) {
+    void push(T value) {
         arr.push_back(value);
     }
 
-    T Pop() {
+    T pop() {
         if (arr.empty()) {
             throw std::runtime_error("Pop empty stack");
         }

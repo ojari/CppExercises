@@ -10,13 +10,13 @@
 */
 void FillTree(BinarySearchTree<int>& bst)
 {
-    bst.Insert(9);
-    bst.Insert(4);
-    bst.Insert(6);
-    bst.Insert(20);
-    bst.Insert(170);
-    bst.Insert(15);
-    bst.Insert(1);
+    bst.insert(9);
+    bst.insert(4);
+    bst.insert(6);
+    bst.insert(20);
+    bst.insert(170);
+    bst.insert(15);
+    bst.insert(1);
 }
 
 TEST_CASE( "Testing BTS Insert", "[bst]") {
@@ -24,7 +24,7 @@ TEST_CASE( "Testing BTS Insert", "[bst]") {
 
     FillTree(bst);
 
-    auto root = bst.GetRoot();
+    auto root = bst.getRoot();
 
     REQUIRE(root->Value() == 9);
     REQUIRE(root->Left()->Value() == 4);
@@ -38,18 +38,18 @@ TEST_CASE( "Testing BTS Insert", "[bst]") {
 TEST_CASE( "Testing BTS Loopup empty", "[bst]") {
     BinarySearchTree<int> bst;
 
-    REQUIRE( bst.Lookup(10) == false);
+    REQUIRE( bst.lookup(10) == false);
 }
 
 TEST_CASE( "Testing BTS Loopup", "[bst]") {
     BinarySearchTree<int> bst;
 
-    bst.Insert(10);
-    bst.Insert(20);
+    bst.insert(10);
+    bst.insert(20);
 
-    REQUIRE( bst.Lookup(10) == true);
-    REQUIRE( bst.Lookup(20) == true);
-    REQUIRE( bst.Lookup(30) == false);
+    REQUIRE( bst.lookup(10) == true);
+    REQUIRE( bst.lookup(20) == true);
+    REQUIRE( bst.lookup(30) == false);
 }
 
 TEST_CASE( "Testing BTS Remove leaf", "[bst]") {
@@ -57,10 +57,10 @@ TEST_CASE( "Testing BTS Remove leaf", "[bst]") {
 
     FillTree(bst);
 
-    bst.Remove(170);
-    bst.Remove(180);
+    bst.remove(170);
+    bst.remove(180);
 
-    REQUIRE(bst.Lookup(170) == false);
+    REQUIRE(bst.lookup(170) == false);
 }
 
 TEST_CASE( "Testing BTS Remove middle", "[bst]") {
@@ -68,9 +68,9 @@ TEST_CASE( "Testing BTS Remove middle", "[bst]") {
 
     FillTree(bst);
 
-    bst.Remove(20);
+    bst.remove(20);
 
-    REQUIRE(bst.Lookup(20) == false);
-    REQUIRE(bst.Lookup(170) == true);
-    REQUIRE(bst.Lookup(15) == true);
+    REQUIRE(bst.lookup(20) == false);
+    REQUIRE(bst.lookup(170) == true);
+    REQUIRE(bst.lookup(15) == true);
 }

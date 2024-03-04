@@ -16,7 +16,7 @@ public:
         right { nullptr }
     {}
 
-    void SetLR(BinaryNode<T> *ref, BinaryNode<T> *value) {
+    void setLR(BinaryNode<T> *ref, BinaryNode<T> *value) {
         if (left == ref) {
             left = value;
         }
@@ -51,18 +51,18 @@ public:
     {
     }
 
-    BinaryNode<T> *GetRoot() {
+    BinaryNode<T> *getRoot() {
         return root;
     }
 
-    void Insert(T value) {
+    void insert(T value) {
         auto newnode = new BinaryNode<T>(value);
         if (root == nullptr) {
             root = newnode;
             return;
         }
 
-        auto position = Find(value);
+        auto position = find(value);
         if (value < position->value) {
             position->left = newnode; 
         }
@@ -75,17 +75,17 @@ public:
         }
     }
 
-    bool Lookup(T value) {
+    bool lookup(T value) {
         if (root == nullptr) {
             return false;
         }
 
-        auto position = Find(value);
+        auto position = find(value);
 
         return position->value == value;
     }
 
-    void Remove(T value) {
+    void remove(T value) {
         if (root == nullptr) {
             return;
         }
@@ -116,7 +116,7 @@ public:
             if (parent == nullptr)
                 root = current->left;
             else
-                parent->SetLR(current, current->left);
+                parent->setLR(current, current->left);
             delete current;
         }
         else if (current->right->left == nullptr) {
@@ -124,7 +124,7 @@ public:
             if (parent == nullptr)
                 root = current->right;
             else
-                parent->SetLR(current, current->right);
+                parent->setLR(current, current->right);
             delete current;
         }
         else {
@@ -143,7 +143,7 @@ public:
                 root = leftmost;
             }
             else {
-                parent->SetLR(current, leftmost);
+                parent->setLR(current, leftmost);
             }
         }
     }
@@ -151,7 +151,7 @@ public:
 private:
     /** Search closes node for a value.
      */
-    BinaryNode<T> *Find(T value) {
+    BinaryNode<T> *find(T value) {
         BinaryNode<T> *current = root;
         while (current != nullptr) {
             if ((value < current->value) && (current->left != nullptr)) {

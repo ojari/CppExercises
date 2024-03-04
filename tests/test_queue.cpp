@@ -6,33 +6,33 @@
 TEST_CASE( "Testing queue Push, Pop", "[queue]") {
     Queue<int> queue;
 
-    queue.Enqueue(10);
-    queue.Enqueue(20);
+    queue.enqueue(10);
+    queue.enqueue(20);
 
-    REQUIRE( queue.DeQueue() == 10 );
-    REQUIRE( queue.DeQueue() == 20 );
+    REQUIRE( queue.deQueue() == 10 );
+    REQUIRE( queue.deQueue() == 20 );
 }
 
 TEST_CASE( "Testing queue Peek", "[queue]") {
     Queue<int> queue;
 
-    queue.Enqueue(10);
+    queue.enqueue(10);
 
-    REQUIRE( queue.Peek() == 10 );
-    REQUIRE( queue.DeQueue() == 10 );
+    REQUIRE( queue.peek() == 10 );
+    REQUIRE( queue.deQueue() == 10 );
 }
 
 TEST_CASE( "Testing queue underflow", "[queue]") {
     Queue<int> queue;
 
-    queue.Enqueue(12);
+    queue.enqueue(12);
 
-    REQUIRE( queue.DeQueue() == 12 );
-    REQUIRE_THROWS_WITH( queue.DeQueue(), "DeQueue from empty queue");
+    REQUIRE( queue.deQueue() == 12 );
+    REQUIRE_THROWS_WITH( queue.deQueue(), "DeQueue from empty queue");
 }
 
 TEST_CASE( "Testing queue Peek empty", "[queue]") {
     Queue<int> queue;
 
-    REQUIRE_THROWS_WITH( queue.Peek(), "Peek from empty queue");
+    REQUIRE_THROWS_WITH( queue.peek(), "Peek from empty queue");
 }
