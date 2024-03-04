@@ -8,14 +8,21 @@ find_package(PkgConfig REQUIRED)
 add_executable(${PROJECT_NAME} main.cpp HashTable.hpp)
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 target_link_libraries(${PROJECT_NAME})
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+
 
 project(tests LANGUAGES CXX)
 set(CMAKE_BUILD_TYPE Debug)
 
-add_executable(${PROJECT_NAME} 
+add_executable(${PROJECT_NAME}
+    RecursiveAlgorithms.cpp
     tests/test_demo.cpp
     tests/test_bst.cpp
     tests/test_double_linklist.cpp
     tests/test_stack.cpp
     tests/test_queue.cpp
+    tests/test_graph.cpp
+    tests/test_recursive.cpp
     tests/catch_amalgamated.cpp)
+
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
