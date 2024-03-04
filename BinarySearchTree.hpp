@@ -111,30 +111,40 @@ public:
             return;   
         }
 
-        if (current->left == nullptr && current->right == nullptr) {  // is leaf node
-            parent->SetLR(current, nullptr);
+        // no right child
+        if (current->right == nullptr) {
+            if (parent == nullptr)
+                root = current->left;
+            else
+                parent->SetLR(current, current->left);
             delete current;
         }
-        else if (current->left == nullptr) {
-            parent->SetLR(current, current->right);
-            delete current;
-        }
-        else if (current->right == nullptr) {
-            parent->SetLR(current, current->left);
+        else if (current->right->left == nullptr) {
+            current->right->left = current->left;
+            if (parent == nullptr)
+                root = current->right;
+            else
+                parent->SetLR(current, current->right);
             delete current;
         }
         else {
-            if (current->right->left == nullptr) {
-                current->right->left = current->left;
-                parent->SetLR(current, current->right);
-                delete current;
+            BinaryNode<T> *leftmost = current->right->left;
+            BinaryNode<T> *leftmostParent = leftmost->right;
+            while (leftmost->left != nullptr) {
+                leftmostParent = leftmost;
+                leftmost = leftmost->left;
             }
-            else if (current->left->right == nullptr) {
-                current->left->right = current->right;
-                parent->SetLR(current, current->left);
-                delete current;
+
+            leftmostParent->left = leftmost->right;
+            leftmost->left = current->left;
+            leftmost->right = current->right;
+
+            if (parent == nullptr) {
+                root = leftmost;
             }
-            // not yet implemented harder cases
+            else {
+                parent->SetLR(current, leftmost);
+            }
         }
     }
 
