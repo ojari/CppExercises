@@ -16,6 +16,7 @@ set(CMAKE_BUILD_TYPE Debug)
 
 add_executable(${PROJECT_NAME}
     RecursiveAlgorithms.cpp
+    Sorting.cpp
     tests/test_demo.cpp
     tests/test_bst.cpp
     tests/test_double_linklist.cpp
@@ -23,6 +24,7 @@ add_executable(${PROJECT_NAME}
     tests/test_queue.cpp
     tests/test_graph.cpp
     tests/test_recursive.cpp
+    tests/test_sort.cpp
     tests/catch_amalgamated.cpp)
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
