@@ -2,7 +2,7 @@
 
 void bubbleSort(std::vector<int>& data)
 {
-    int skipLast = data.size() - 1;
+    size_t skipLast = data.size() - 1;
 
     while (skipLast > 0) {
         for (int i=0; i<skipLast; i++) {
@@ -11,5 +11,19 @@ void bubbleSort(std::vector<int>& data)
             }
         }
         skipLast--;
+    }
+}
+void selectionSort(std::vector<int>& data)
+{
+    for (int i=0; i<data.size() - 1; i++) {
+        int min_index = i;
+        for (int j=i+1; j<data.size(); j++) {
+            if (data[j] < data[min_index]) {
+                min_index = j;
+            }
+        }
+        if (i != min_index) {
+            std::swap(data[i], data[min_index]);
+        }
     }
 }

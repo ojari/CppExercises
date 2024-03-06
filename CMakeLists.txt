@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 
 project(demo VERSION 0.1)
 
-find_package(PkgConfig REQUIRED)
+# find_package(PkgConfig REQUIRED)
 
 # target_include_directories(${PROJECT_NAME} PRIVATE ../common)
 add_executable(${PROJECT_NAME} main.cpp HashTable.hpp)
