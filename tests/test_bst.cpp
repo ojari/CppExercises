@@ -1,6 +1,7 @@
 #include "catch_amalgamated.hpp"
 #include <algorithm>
 #include "../BinarySearchTree.hpp"
+#include "../TreeAlgorithm.hpp"
 
 /** Makes default binarytree
  * 
@@ -73,4 +74,21 @@ TEST_CASE( "Testing BTS Remove middle", "[bst]") {
     REQUIRE(bst.lookup(20) == false);
     REQUIRE(bst.lookup(170) == true);
     REQUIRE(bst.lookup(15) == true);
+}
+
+TEST_CASE("Testing breadthFirstSearch", "[bst_algo]") {
+    BinarySearchTree<int> bst;
+    LinkList<int> result;
+
+    FillTree(bst);
+
+    result = breadthFirstSearch(bst);
+
+    REQUIRE(result.pop() == 9);
+    REQUIRE(result.pop() == 4);
+    REQUIRE(result.pop() == 20);
+    REQUIRE(result.pop() == 1);
+    REQUIRE(result.pop() == 6);
+    REQUIRE(result.pop() == 15);
+    REQUIRE(result.pop() == 170);
 }

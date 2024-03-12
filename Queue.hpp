@@ -11,6 +11,10 @@ public:
     {
     }
 
+    bool isEmpty() {
+        return first == nullptr;
+    }
+
     T peek() {
         if (first == nullptr) throw std::runtime_error("Peek from empty queue");
 
