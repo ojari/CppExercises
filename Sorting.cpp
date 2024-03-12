@@ -49,3 +49,49 @@ void insertionSort(std::vector<int>& data)
         }
     }
 }
+
+std::vector<int> merge(std::vector<int> left, std::vector<int> right)
+{
+    std::vector<int> result;
+    auto left_iter = left.begin();
+    auto right_iter = right.begin();
+
+    while (!(left_iter == left.end() && right_iter == right.end())) {
+        if (left_iter == left.end()) {
+            result.push_back(*right_iter);
+            right_iter++;
+        }
+        else if (right_iter == right.end()) {
+            result.push_back(*left_iter);
+            left_iter++;
+        }
+        else {
+            if (*left_iter <= *right_iter) {
+                result.push_back(*left_iter);
+                left_iter++;
+            }
+            else {
+                result.push_back(*right_iter);
+                right_iter++;
+            }
+        }
+    }
+    return result;
+}
+
+std::vector<int> mergeSort(std::vector<int> array)
+{
+    if (array.size() == 1) {
+        return array;
+    }
+
+    int mid_point = array.size() / 2;
+
+    std::vector<int> left(array.begin(), array.begin() + mid_point);
+    std::vector<int> right(array.begin() + mid_point, array.end());
+
+    return merge(
+        mergeSort(left),
+        mergeSort(right)
+    );
+}
