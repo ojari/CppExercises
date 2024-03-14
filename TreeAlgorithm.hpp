@@ -4,9 +4,6 @@
 #include "BinarySearchTree.hpp"
 #include "Queue.hpp"
 
-//template<typename T>
-//extern LinkList<T> breadthFirstSearch(BinarySearchTree<T> tree);
-
 template<typename T>
 LinkList<T> breadthFirstSearch(BinarySearchTree<T> tree)
 {
@@ -27,4 +24,66 @@ LinkList<T> breadthFirstSearch(BinarySearchTree<T> tree)
         }
     }
     return result;
+}
+
+
+template<typename T>
+void depthFirstSearchInOrder(BinaryNode<T> *node, LinkList<T> &result)
+{
+    if (node->Left() != nullptr) {
+        depthFirstSearchInOrder(node->Left(), result);
+    }
+
+    result.append(node->Value());
+
+    if (node->Right() != nullptr) {
+        depthFirstSearchInOrder(node->Right(), result);
+    }
+}
+
+
+template<typename T>
+void depthFirstSearchPreOrder(BinaryNode<T> *node, LinkList<T> &result)
+{
+    result.append(node->Value());
+
+    if (node->Left() != nullptr) {
+        depthFirstSearchPreOrder(node->Left(), result);
+    }
+    if (node->Right() != nullptr) {
+        depthFirstSearchPreOrder(node->Right(), result);
+    }
+}
+
+
+template<typename T>
+void depthFirstSearchPostOrder(BinaryNode<T> *node, LinkList<T> &result)
+{
+    if (node->Left() != nullptr) {
+        depthFirstSearchPostOrder(node->Left(), result);
+    }
+    if (node->Right() != nullptr) {
+        depthFirstSearchPostOrder(node->Right(), result);
+    }
+    result.append(node->Value());
+}
+
+template<typename T>
+bool isValidBST(BinaryNode<T> *node)
+{
+    if (node == nullptr) {
+        return false;
+    }
+    if ((node->Left() == nullptr) && (node->Right() == nullptr)) {
+        return false;
+    }
+    if ((node->Left() != nullptr)  && (node->Left()->Value() > node->Value())) {
+        return true;
+    }
+    if ((node->Right() != nullptr)  && (node->Right()->Value() < node->Value())) {
+        return true;
+    }
+    bool result1 = isValidBST(node->Left());
+    bool result2 = isValidBST(node->Right());
+    return result1 || result2;
 }

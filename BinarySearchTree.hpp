@@ -16,6 +16,12 @@ public:
         right { nullptr }
     {}
 
+    BinaryNode(T val, BinaryNode<T> *l, BinaryNode<T> *r) :
+        value { val },
+        left { l },
+        right { r }
+    {}
+
     void setLR(BinaryNode<T> *ref, BinaryNode<T> *value) {
         if (left == ref) {
             left = value;
@@ -27,6 +33,11 @@ public:
     T Value() {
         return value;
     }
+
+    void set(T val) {
+        value = val;
+    }
+
     BinaryNode<T> *Left() {
         return left;
     }

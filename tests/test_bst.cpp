@@ -92,3 +92,70 @@ TEST_CASE("Testing breadthFirstSearch", "[bst_algo]") {
     REQUIRE(result.pop() == 15);
     REQUIRE(result.pop() == 170);
 }
+
+TEST_CASE("Testing depthFirstSearchInOrder", "[bst_algo]") {
+    BinarySearchTree<int> bst;
+    LinkList<int> result;
+
+    FillTree(bst);
+
+    depthFirstSearchInOrder<int>(bst.getRoot(), result);
+
+    REQUIRE(result.pop() == 1);
+    REQUIRE(result.pop() == 4);
+    REQUIRE(result.pop() == 6);
+    REQUIRE(result.pop() == 9);
+    REQUIRE(result.pop() == 15);
+    REQUIRE(result.pop() == 20);
+    REQUIRE(result.pop() == 170);
+}
+
+
+TEST_CASE("Testing depthFirstSearchPreOrder", "[bst_algo]") {
+    BinarySearchTree<int> bst;
+    LinkList<int> result;
+
+    FillTree(bst);
+
+    depthFirstSearchPreOrder<int>(bst.getRoot(), result);
+
+    REQUIRE(result.pop() == 9);
+    REQUIRE(result.pop() == 4);
+    REQUIRE(result.pop() == 1);
+    REQUIRE(result.pop() == 6);
+    REQUIRE(result.pop() == 20);
+    REQUIRE(result.pop() == 15);
+    REQUIRE(result.pop() == 170);
+}
+
+
+TEST_CASE("Testing depthFirstSearchPostOrder", "[bst_algo]") {
+    BinarySearchTree<int> bst;
+    LinkList<int> result;
+
+    FillTree(bst);
+
+    depthFirstSearchPostOrder<int>(bst.getRoot(), result);
+
+    REQUIRE(result.pop() == 1);
+    REQUIRE(result.pop() == 6);
+    REQUIRE(result.pop() == 4);
+    REQUIRE(result.pop() == 15);
+    REQUIRE(result.pop() == 170);
+    REQUIRE(result.pop() == 20);
+    REQUIRE(result.pop() == 9);
+}
+
+
+TEST_CASE("Testing isValidBST", "[bst_algo]") {
+    BinaryNode<int> root {2,
+        new BinaryNode<int> { 1 },
+        new BinaryNode<int> { 3 }};
+
+    bool result = isValidBST(&root);
+
+    REQUIRE(result == true);
+
+    root.Left()->set(4);
+    REQUIRE(result == false);
+}
