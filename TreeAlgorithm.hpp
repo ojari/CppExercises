@@ -72,16 +72,16 @@ template<typename T>
 bool isValidBST(BinaryNode<T> *node)
 {
     if (node == nullptr) {
-        return false;
+        return true;
     }
     if ((node->Left() == nullptr) && (node->Right() == nullptr)) {
-        return false;
+        return true;
     }
     if ((node->Left() != nullptr)  && (node->Left()->Value() > node->Value())) {
-        return true;
+        return false;
     }
     if ((node->Right() != nullptr)  && (node->Right()->Value() < node->Value())) {
-        return true;
+        return false;
     }
     bool result1 = isValidBST(node->Left());
     bool result2 = isValidBST(node->Right());

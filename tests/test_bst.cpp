@@ -157,5 +157,6 @@ TEST_CASE("Testing isValidBST", "[bst_algo]") {
     REQUIRE(result == true);
 
     root.Left()->set(4);
+    result = isValidBST(&root);
     REQUIRE(result == false);
 }
