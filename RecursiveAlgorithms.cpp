@@ -1,4 +1,7 @@
 #include "RecursiveAlgorithms.hpp"
+#include <map>
+
+int fibonacciCounter = 0;
 
 int findFactorialRecursive(int n)
 {
@@ -20,10 +23,27 @@ int findFactorialIterative(int n)
 
 int fibonacciRecursive(int n)
 {
+    fibonacciCounter++;
     if (n < 2) {
         return n;
     }
     return fibonacciRecursive(n - 2) + fibonacciRecursive(n - 1);
+}
+
+static std::map<int, int> cache;
+int fibonacciRecursiveDyn(int n)
+{   
+    if (cache.find(n) != cache.end()) {
+        return cache[n];
+    }
+
+    fibonacciCounter++;
+    if (n < 2) {
+        return n;
+    }
+    int ret = fibonacciRecursiveDyn(n - 2) + fibonacciRecursiveDyn(n - 1);
+    cache[n] = ret;
+    return ret;
 }
 
 int fibonacciIterative(int n)

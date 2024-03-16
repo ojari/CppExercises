@@ -7,6 +7,7 @@
 #include "DoubleLinkList.hpp"
 #include "BinarySearchTree.hpp"
 #include "Queue.hpp"
+#include "RecursiveAlgorithms.hpp"
 
 using namespace std;
 
@@ -115,25 +116,12 @@ void test01()
 
 void test02()
 {
-    Queue<int> queue;
-    queue.enqueue(10);
-    queue.deQueue();
-    queue.deQueue();
-}
+    fibonacciCounter = 0;
+    cout << "Fibonacci 10: " << fibonacciRecursiveDyn(10) << " " << fibonacciCounter << endl;
 
-void test03()
-{
-    BinarySearchTree<int> bst;
-
-    bst.insert(9);
-    bst.insert(4);
-    bst.insert(6);
-    bst.insert(20);
-    bst.insert(170);
-    bst.insert(15);
-    bst.insert(1);
-
-    bst.remove(20);
+    fibonacciCounter = 0;
+    cout << "Fibonacci 20: " << fibonacciRecursiveDyn(20) << " " << fibonacciCounter << endl;
+    
 }
 
 int main()
@@ -159,33 +147,8 @@ int main()
     cout << "set2: " << first_recurring_numb(vector<int>{2, 5, 1, 3, 3, 5, 1, 2, 4}) << endl;
 
 
-    /*HashTable<int> htable(3);
-    htable.set("one", 11);
-    htable.set("two", 22);
-    htable.set("three", 33);
-    htable.set("four", 44);
-    htable.set("five", 55);
-
-    cout << "Hash1 " << htable.get("one") << endl;
-    cout << "Hash2 " << htable.get("two") << endl;
-    cout << "Hash3 " << htable.get("three") << endl;
-    cout << "Hash3 " << htable.get("four") << endl;
-    htable.dump();
-
-    cout << "Keys:" << endl;
-    for (auto key : htable.keys()) {
-        cout << " - " << key << endl;
-    }*/
-
-/*
-    LinkList<int> list;
-    list.Append(10);
-    list.Append(20);
-    list.Print();
-*/
     //test01();
-    //test02();
-    test03();
+    test02();
 
     return 0;
 }

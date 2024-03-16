@@ -17,7 +17,7 @@ set(CMAKE_BUILD_TYPE Debug)
 add_executable(${PROJECT_NAME}
     RecursiveAlgorithms.cpp
     Sorting.cpp
-    tests/test_demo.cpp
+    tests/test_hashtable.cpp
     tests/test_bst.cpp
     tests/test_linklist.cpp
     tests/test_double_linklist.cpp

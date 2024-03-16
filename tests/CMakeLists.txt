@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.12)
 project(test2demo LANGUAGES CXX)
 
 add_executable(${PROJECT_NAME}
-  test_demo.cpp
+  test_hashtable.cpp
   test_double_linklist.cpp
   catch_amalgamated.cpp
 )
