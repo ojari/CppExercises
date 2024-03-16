@@ -81,7 +81,7 @@ public:
             head = next;
         }
 
-        LinkNode<T> *previous = moveToIndex(position);
+        LinkNode<T> *previous = moveToIndex(position-1);
         LinkNode<T> *to_delete = previous->next;
         previous->next = previous->next->next;
 

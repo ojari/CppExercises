@@ -5,7 +5,7 @@ project(demo VERSION 0.1)
 # find_package(PkgConfig REQUIRED)
 
 # target_include_directories(${PROJECT_NAME} PRIVATE ../common)
-add_executable(${PROJECT_NAME} main.cpp HashTable.hpp)
+add_executable(${PROJECT_NAME} main.cpp HashTable.hpp RecursiveAlgorithms.cpp)
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 target_link_libraries(${PROJECT_NAME})
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
@@ -19,6 +19,7 @@ add_executable(${PROJECT_NAME}
     Sorting.cpp
     tests/test_demo.cpp
     tests/test_bst.cpp
+    tests/test_linklist.cpp
     tests/test_double_linklist.cpp
     tests/test_stack.cpp
     tests/test_queue.cpp
