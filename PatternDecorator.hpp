@@ -17,6 +17,9 @@ struct RedFlower : Flower
 {
   RedFlower(Flower &base) : base(base)
   {}
+  /** cleaner implementation would be to Flower have list of colors.
+   *  But decorator should not change the base class.
+  */
   string str() override {
     string bstr = base.str();
     if (bstr.find("that is red") != string::npos) // discard duplicates

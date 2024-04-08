@@ -47,6 +47,7 @@ add_executable(${PROJECT_NAME}
     tests/test_recursive.cpp
     tests/test_sort.cpp
     tests/test_pattern_decorator.cpp
+    tests/test_pattern_flyweight.cpp
     tests/catch_amalgamated.cpp
 )
 
