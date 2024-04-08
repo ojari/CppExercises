@@ -1,4 +1,4 @@
-#include <catch2/catch_all.hpp>
+#include "common.hpp"
 #include <algorithm>
 #include "../DoubleLinkList.hpp"
 

@@ -1,5 +1,6 @@
-#include <catch2/catch_all.hpp>
-#include <algorithm>
+#define CATCH_CONFIG_MAIN  // only one file needs this macro to get main
+#include "common.hpp"
+#include <catch2/catch_session.hpp>
 #include "../BinarySearchTree.hpp"
 #include "../TreeAlgorithm.hpp"
 

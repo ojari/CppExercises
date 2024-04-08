@@ -1,4 +1,4 @@
-#include <catch2/catch_all.hpp>
+#include "common.hpp"
 #include "../RecursiveAlgorithms.hpp"
 
 TEST_CASE( "algorithm factorial ", "[recursive]" ) {

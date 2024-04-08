@@ -1,5 +1,4 @@
-#include <catch2/catch_all.hpp>
-#include <algorithm>
+#include "common.hpp"
 #include "../Stack.hpp"
 
 

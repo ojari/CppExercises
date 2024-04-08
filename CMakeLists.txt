@@ -46,6 +46,8 @@ add_executable(${PROJECT_NAME}
     tests/test_graph.cpp
     tests/test_recursive.cpp
     tests/test_sort.cpp
+    tests/test_pattern_decorator.cpp
+    tests/catch_amalgamated.cpp
 )
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
@@ -56,8 +58,9 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 )
 target_link_directories(${PROJECT_NAME} PRIVATE
     ${VCPKG_ROOT}/debug/lib
+    ${VCPKG_ROOT}/debug/lib/manual-link
 )
 target_link_libraries(${PROJECT_NAME}
     Catch2d
-    manual-link/Catch2Maind
+    Catch2Maind
 )

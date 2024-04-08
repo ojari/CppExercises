@@ -1,4 +1,4 @@
-#include <catch2/catch_all.hpp>
+#include "common.hpp"
 #include "../LinkList.hpp"
 
 TEST_CASE("Testing append and pop", "[linklist]") {
