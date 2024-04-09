@@ -49,6 +49,7 @@ add_executable(${PROJECT_NAME}
     tests/test_pattern_decorator.cpp
     tests/test_pattern_flyweight.cpp
     tests/test_pattern_proxy.cpp
+    tests/test_pattern_chain_of_resp.cpp
     tests/catch_amalgamated.cpp
 )
 
