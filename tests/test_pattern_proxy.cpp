@@ -20,5 +20,3 @@ TEST_CASE("PatternProxy", "[PatternProxy]") {
     REQUIRE(youngperson.drive() == "driving");
     REQUIRE(youngperson.drink_and_drive() == "dead");
 }
-
-
