@@ -2,6 +2,9 @@
 #include "../PatternMemento.hpp"
 
 TEST_CASE("TokenMachine", "[Memento]") {
+    // NOTE: This code do not work in linux in Catch2 framework, 
+    // but same code works in Windows Catch2 and main.cpp::test_memento stansalond function.
+    //
     TokenMachine tokenMachine;
     auto m1 = tokenMachine.add_token(10);
     auto m2 = tokenMachine.add_token(20);
