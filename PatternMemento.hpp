@@ -57,7 +57,6 @@ struct TokenMachine {
       }
       index++;
     }*/
-    current = index;    
     auto pos = find_if(tokens.begin(), tokens.end(), [&](const shared_ptr<Token>& t) {
       return t->value == m.value;
     });
