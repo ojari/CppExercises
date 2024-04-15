@@ -8,7 +8,7 @@
 #include "BinarySearchTree.hpp"
 #include "Queue.hpp"
 #include "RecursiveAlgorithms.hpp"
-#include "PatternMemento.hpp"
+#include "pattern/Memento.hpp"
 
 using namespace std;
 
