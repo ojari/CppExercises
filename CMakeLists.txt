@@ -54,6 +54,8 @@ add_executable(${PROJECT_NAME}
     tests/test_pattern_mediator.cpp
     tests/test_pattern_memento.cpp
     tests/test_pattern_observer.cpp
+    tests/test_pattern_state.cpp
+    tests/test_pattern_visitor.cpp
     tests/catch_amalgamated.cpp
 )
 
