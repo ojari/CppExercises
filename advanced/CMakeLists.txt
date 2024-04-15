@@ -19,11 +19,9 @@ cmake_minimum_required(VERSION 3.12)
 project(tests LANGUAGES CXX)
 set(CMAKE_BUILD_TYPE Debug)
 
-find_package(Catch2 REQUIRED)
-
 add_executable(${PROJECT_NAME}
-    tests/test_assignment1.cpp
-    tests/catch_amalgamated.cpp
+  main.cpp
+  tests/test_assignment1.cpp
 )
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
@@ -39,5 +37,4 @@ target_link_directories(${PROJECT_NAME} PRIVATE
 )
 target_link_libraries(${PROJECT_NAME}
     Catch2d
-    Catch2Maind
 )
