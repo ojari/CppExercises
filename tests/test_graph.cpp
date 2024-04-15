@@ -32,6 +32,5 @@ TEST_CASE( "Testing graph addVertex, addEdge", "[graph]") {
 // 5-->4 6 
 // 6-->5
 
-    // REQUIRE( queue.DeQueue() == 10 );
-    // REQUIRE( queue.DeQueue() == 20 );
+    // REQUIRE( foo == 10 );
 }
