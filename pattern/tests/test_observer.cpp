@@ -1,5 +1,5 @@
 #include "common.hpp"
-#include "../pattern/Observer.hpp"
+#include "../Observer.hpp"
 
 
 TEST_CASE("Observer 1", "[Pattern,Observer]") {

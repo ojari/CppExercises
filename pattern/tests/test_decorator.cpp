@@ -1,5 +1,5 @@
 #include "common.hpp"
-#include "../pattern/Decorator.hpp"
+#include "../Decorator.hpp"
 
 TEST_CASE("PatternDecorator", "[PatternDecorator]") {
     Rose rose;

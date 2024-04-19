@@ -1,5 +1,5 @@
 #include "common.hpp"
-#include "../pattern/Mediator.hpp"
+#include "../Mediator.hpp"
 
 TEST_CASE("Mediator", "[Mediator]") {
     Mediator mediator;

@@ -1,5 +1,5 @@
 #include "common.hpp"
-#include "../pattern/Interpreter.hpp"
+#include "../Interpreter.hpp"
 
 TEST_CASE("PatternInterpreter 1", "[PatternInterpreter]") {
     ExpressionProcessor ep;

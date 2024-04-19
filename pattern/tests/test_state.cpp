@@ -1,5 +1,5 @@
 #include "common.hpp"
-#include "../pattern/State.hpp"
+#include "../State.hpp"
 
 TEST_CASE("State", "[Pattern,State]") {
     SECTION("CombinationLock - Correct Combination") {

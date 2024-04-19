@@ -1,5 +1,5 @@
 #include "common.hpp"
-#include "../pattern/Visitor.hpp"
+#include "../Visitor.hpp"
 
 TEST_CASE("Visitor", "[Pattern,Visitor]") {
     Value v{2};

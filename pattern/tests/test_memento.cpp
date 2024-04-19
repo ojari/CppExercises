@@ -1,5 +1,5 @@
 #include "common.hpp"
-#include "../pattern/Memento.hpp"
+#include "../Memento.hpp"
 
 TEST_CASE("TokenMachine", "[Memento]") {
     // NOTE: This code do not work in linux in Catch2 framework, 

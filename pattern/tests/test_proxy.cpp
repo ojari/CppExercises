@@ -1,5 +1,5 @@
 #include "common.hpp"
-#include "../pattern/Proxy.hpp"
+#include "../Proxy.hpp"
 
 TEST_CASE("PatternProxy", "[PatternProxy]") {
     Person person{15};
