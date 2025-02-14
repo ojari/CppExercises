@@ -29,34 +29,30 @@ vector<Token> lex(const string& input)
   string intstr;
 
   for (int i = 0; i < input.size(); ++i) {
-    switch (input[i]) {
-      case '+':
-        result.push_back({token_type::plus, "+"});
-        break;
-      case '-':
-        result.push_back({token_type::minus, "-"});
-        break;
-      case '0' ... '9': {
-            auto start = i;
-            while (i < input.size() && isdigit(input[i]))
-            ++i;
-            intstr = input.substr(start, i-start);
-            result.push_back({token_type::integer, intstr});
-            --i;
-        }
-        break;
-      case 'a' ... 'z': {
-            auto start = i;
-            while (i < input.size() && isalpha(input[i]))
-            ++i;
-            intstr = input.substr(start, i-start);
-            result.push_back({token_type::variable, intstr});
-            --i;
-        }
-        break;
-      default:
-        break;
-    }
+      char ch = input[i];
+
+      if (isdigit(ch)) {
+          auto start = i;
+          while (i < input.size() && isdigit(input[i]))
+              ++i;
+          intstr = input.substr(start, i - start);
+          result.push_back({ token_type::integer, intstr });
+          --i;
+      }
+      else if (isalpha(ch)) {
+          auto start = i;
+          while (i < input.size() && isalpha(input[i]))
+              ++i;
+          intstr = input.substr(start, i - start);
+          result.push_back({ token_type::variable, intstr });
+          --i;
+      }
+      else if (ch == '+') {
+          result.push_back({ token_type::plus, "+" });
+      }
+      else if (ch == '-') {
+          result.push_back({ token_type::minus, "-" });
+      }
   }
   return result;
 }
