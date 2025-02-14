@@ -14,20 +14,6 @@ endif()
 set(CMAKE_TOOLCHAIN_FILE ${VCPKG_DIR}/scripts/buildsystems/vcpkg.cmake)
 
 cmake_minimum_required(VERSION 3.12)
-project(demo VERSION 0.1)
-
-# find_package(PkgConfig REQUIRED)
-
-# target_include_directories(${PROJECT_NAME} PRIVATE ../common)
-add_executable(${PROJECT_NAME} 
-    main.cpp
-    HashTable.hpp
-    RecursiveAlgorithms.cpp
-)
-set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
-target_link_libraries(${PROJECT_NAME})
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
-
 
 project(tests LANGUAGES CXX)
 set(CMAKE_BUILD_TYPE Debug)
@@ -35,18 +21,17 @@ set(CMAKE_BUILD_TYPE Debug)
 find_package(Catch2 REQUIRED)
 
 add_executable(${PROJECT_NAME}
-    RecursiveAlgorithms.cpp
-    Sorting.cpp
-    tests/test_hashtable.cpp
-    tests/test_bst.cpp
-    tests/test_linklist.cpp
-    tests/test_double_linklist.cpp
-    tests/test_stack.cpp
-    tests/test_queue.cpp
-    tests/test_graph.cpp
-    tests/test_recursive.cpp
-    tests/test_sort.cpp
-    tests/catch_amalgamated.cpp
+    tests/test_decorator.cpp
+    tests/test_flyweight.cpp
+    tests/test_proxy.cpp
+    tests/test_chain_of_resp.cpp
+    tests/test_interpreter.cpp
+    tests/test_mediator.cpp
+    tests/test_memento.cpp
+    tests/test_observer.cpp
+    tests/test_state.cpp
+    tests/test_visitor.cpp
+    main.cpp
 )
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
@@ -54,6 +39,7 @@ target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${VCPKG_ROOT}/include
+
 )
 target_link_directories(${PROJECT_NAME} PRIVATE
     ${VCPKG_ROOT}/debug/lib

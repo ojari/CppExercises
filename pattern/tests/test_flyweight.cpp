@@ -1,5 +1,5 @@
 #include "common.hpp"
-#include "../PatternFlyweight.hpp"
+#include "../Flyweight.hpp"
 
 TEST_CASE("PatternFlyweight", "[PatternFlyweight]") {
     Sentence sentence("hello world");

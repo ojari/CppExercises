@@ -1,5 +1,5 @@
 #include "common.hpp"
-#include "../PatternChainOfResp.hpp"
+#include "../ChainOfResp.hpp"
 
 TEST_CASE("One Goblin", "[PatternChainOfResp]") {
     Game game;
